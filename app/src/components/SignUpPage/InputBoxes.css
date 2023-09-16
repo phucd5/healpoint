@@ -28,7 +28,7 @@ input::content {
   height: 85px;
   font-size: 40px;
   padding: 15px;
-  color: #5b5555;
+  color: #000000;
 }
 
 .email {
@@ -67,7 +67,8 @@ input::content {
   height: 80px;
   position: relative;
   left: 481px;
-  top: 200px;
+  top: 100px;
+  border-radius: 5px;
 }
 
 .link-style {

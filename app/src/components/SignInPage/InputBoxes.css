@@ -6,7 +6,6 @@ input::placeholder {
 
 .inputContainer {
   padding-top: 20px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -14,7 +13,7 @@ input::placeholder {
 
 .relative-wrapper {
   position: relative;
-  top: 150px;
+  top: 50px;
   display: inline-block;
 }
 
@@ -52,7 +51,8 @@ input::placeholder {
   height: 80px;
   position: relative;
   left: 481px;
-  top: 200px;
+  top: 150px;
+  border-radius: 5px;
 }
 
 .link-style {
@@ -71,5 +71,6 @@ input::placeholder {
   height: 80px;
   position: relative;
   left: 739px;
-  top: 120px;
+  top: 70px;
+  border-radius: 5px;
 }

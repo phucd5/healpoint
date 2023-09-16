@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+
+  padding: 0;
+}
+
+.navbar {
+  display: flex;
+  position: sticky;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-list {
+  width: 50%;
+  display: flex;
+}
+
+.nav-list li {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  list-style: none;
+  padding: 26px 30px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list li a:hover {
+  color: black;
+}
+
+.horizontal-nav {
+  background: #092fa2;
+  background-size: cover;
+}
