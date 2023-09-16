@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import HealthData from "../models/HealthData.js";
 import bcrypt from "bcrypt";
 import {
 	handleSuccess,
@@ -13,17 +14,19 @@ export const register = async (req, res) => {
 		const salt = await bcrypt.genSalt();
 		const passwordHash = await bcrypt.hash(password, salt);
 
+		const newHealthData = new HealthData({});
+		const savedHealthData = await newHealthData.save();
+
 		const newUser = new User({
 			firstName,
 			lastName,
 			email,
 			password: passwordHash,
+			healthData: savedHealthData.id,
 		});
 
-		//createnew health data
-		//addit in
-
 		const savedUser = await newUser.save();
+
 		handleSuccess(res, savedUser);
 	} catch (err) {
 		handleServerError(res, err);
