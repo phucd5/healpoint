@@ -1,0 +1,35 @@
+.inputContainer {
+  padding-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.relative-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.inputBoxes {
+  width: 478px;
+  height: 85px;
+  font-size: 40px;
+  padding: 15px;
+  color: #5b5555;
+  border-radius: 10px;
+}
+
+.email {
+  position: relative;
+  right: 40%;
+  padding: 0;
+  margin: 0;
+}
+
+.password {
+  position: relative;
+  right: 35%;
+  padding: 0;
+  margin: 0;
+}
