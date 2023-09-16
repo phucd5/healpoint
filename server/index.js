@@ -5,6 +5,10 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cors from "cors";
 
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
+import healthRoutes from "./routes/healthdata.js";
+
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -17,7 +21,9 @@ app.use(
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
-// app.use("/auth", authRoutes)
+app.use("/auth", authRoutes);
+app.use("/user", userRoutes);
+app.use("/health-data", healthRoutes);
 
 const PORT = process.env.PORT || 6001;
 console.log(process.env.MONGO_URL);
