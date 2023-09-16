@@ -4,7 +4,7 @@ import {
 	getUserById,
 	getUserByEmail,
 	getUserHealthData,
-} from "../controllers/user";
+} from "../controllers/user.js";
 
 const router = express.Router();
 
