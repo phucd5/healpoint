@@ -2,13 +2,14 @@ import { useState } from "react";
 import "./style.css";
 import front from "../images/Front.png";
 import back from "../images/Back.png";
+import SubmitButton from "./submit";
 
 const Home = () => {
   //name: (x1,y1,x2,y2)
   const bodyParts = {
     head: {
       x1: 202.76388549804688,
-      y1: 2.6666717529296875,
+      y1: 0.6666717529296875,
       x2: 269.7638854980469,
       y2: 83.66667175292969,
     },
@@ -30,13 +31,13 @@ const Home = () => {
       x2: 381.7638854980469,
       y2: 425.6666717529297,
     },
-    "left-leg": {
-      x1: 166.76388549804688,
-      y1: 304.6666717529297,
-      x2: 203.76388549804688,
-      y2: 725.6666717529297,
-    },
     "right-leg": {
+      x1: 139.04165649414062,
+      y1: 311.6666717529297,
+      x2: 225.04165649414062,
+      y2: 728.6666717529297,
+    },
+    "left-leg": {
       x1: 240.76388549804688,
       y1: 311.6666717529297,
       x2: 332.7638854980469,
@@ -60,6 +61,8 @@ const Home = () => {
 
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
+
+    console.log("this is ", x, y);
 
     for (const bodyPart of Object.keys(bodyParts)) {
       const { x1, y1, x2, y2 } = bodyParts[bodyPart];
@@ -124,7 +127,7 @@ const Home = () => {
             key={`front-${index}`}
             className="highlight"
             style={{
-              left: `${x1 + 300}px`,
+              left: `${x1 + 290}px`,
               top: `${y1 + 0.07 * 750 + 100}px`, // add 7% of image height for .front
               width: `${x2 - x1}px`,
               height: `${y2 - y1}px`,
@@ -145,7 +148,7 @@ const Home = () => {
             key={`back-${index}`}
             className="highlight"
             style={{
-              left: `${x1 + 935}px`, // Offset for the back image
+              left: `${x1 + 925}px`, // Offset for the back image
               top: `${y1 + 150}px`,
               width: `${x2 - x1}px`,
               height: `${y2 - y1}px`,
@@ -160,6 +163,11 @@ const Home = () => {
         onClick={(e) => handleClick(e, true)}
       />
       <img className="back" src={back} alt="Clickable" onClick={handleClick} />
+      <SubmitButton
+        onClick={() => {
+          alert(`submitted ${body}`);
+        }}
+      />
     </div>
   );
 };
