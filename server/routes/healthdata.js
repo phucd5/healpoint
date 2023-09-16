@@ -14,3 +14,5 @@ router.get("/lifestyle", getLifestyle);
 router.get("/healthdata", getHealthData);
 router.put("/:id", putHealthData);
 router.delete("/:id", deleteHealthData);
+
+export default router;

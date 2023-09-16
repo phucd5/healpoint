@@ -1,9 +1,12 @@
 import User from "../models/User.js";
+import express from "express";
 import {
 	handleSuccess,
 	handleServerError,
 	handleNotFound,
 } from "../utils/handlers.js";
+
+const router = express.Router();
 
 export const getUserById = async (req, res) => {
 	try {
