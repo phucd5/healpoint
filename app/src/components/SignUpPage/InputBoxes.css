@@ -4,6 +4,11 @@ input::placeholder {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+input::content {
+  color: #092fa2;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 .inputContainer {
   padding-top: 20px;
   display: block;
@@ -44,11 +49,21 @@ input::placeholder {
   margin: 0;
 }
 
-.tosignup {
+.password-conf {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  position: relative;
+  right: 35%;
+  padding: 0;
+  margin: 0;
+  right: 65px;
+}
+
+.signup {
   font-size: 20px;
   background-color: #092fa2;
   border: none;
-  width: 220px;
+  width: 478px;
   height: 80px;
   position: relative;
   left: 481px;
@@ -61,15 +76,4 @@ input::placeholder {
   color: white;
   text-decoration: none;
   font-size: xx-large;
-}
-
-.login {
-  font-size: 20px;
-  background-color: #092fa2;
-  border: none;
-  width: 220px;
-  height: 80px;
-  position: relative;
-  left: 739px;
-  top: 120px;
 }
