@@ -2,7 +2,6 @@ import User from "../models/User.js";
 import bcrypt from "bcrypt";
 import {
 	handleSuccess,
-	handleBadRequest,
 	handleServerError,
 	handleNotFound,
 } from ".../utils/handlers.js";
@@ -29,6 +28,20 @@ export const getUserByEmail = async (req, res) => {
 		}
 		handleSuccess(res, user);
 	} catch (err) {
-		res.status(500).json({ message: err.message });
+		handleServerError(res, err);
 	}
 };
+
+export const getUserHealthData = async (req, res) => {
+	try {
+		const user = await User.findById(req.params.userId);
+		if (!user) {
+			return res.status(404).json({ message: "User not found" });
+		}
+		handleSuccess(res, user.healthData);
+	} catch (error) {
+		handleServerError(res, err);
+	}
+};
+
+export default router;
