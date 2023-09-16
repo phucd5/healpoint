@@ -55,7 +55,7 @@ export const deleteUser = async (req, res) => {
 		return handleSuccess(res, { message: "User deleted successfully" });
 	} catch (error) {
 		console.error(error);
-		return handleError(res, "Internal server error");
+		return handleError(res, "Server Error");
 	}
 };
 
