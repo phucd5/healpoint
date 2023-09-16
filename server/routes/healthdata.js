@@ -1,18 +1,16 @@
 import express from "express";
 import {
-	getHealthData,
-	putHealthData,
-	deleteHealthData,
-	getCondition,
-	getLifestyle,
+	updateHealthDataById,
+	getLifestyleData,
+	getConditionsData,
+	deleteHealthDataById,
 } from "../controllers/healthdata.js";
 
 const router = express.Router();
 
-router.get("/conditions", getCondition);
-router.get("/lifestyle", getLifestyle);
-router.get("/healthdata", getHealthData);
-router.put("/:id", putHealthData);
-router.delete("/:id", deleteHealthData);
+router.get("/:id/conditions", getConditionsData);
+router.get("/:id/lifestyle", getLifestyleData);
+router.put("/:id", updateHealthDataById);
+router.delete("/:id", deleteHealthDataById);
 
 export default router;

@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
 	healthData: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "HealthData",
-		required: true,
+		required: false,
 	},
 });
 

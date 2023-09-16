@@ -1,100 +1,85 @@
-import HealthData from '../models/HealthData.js'
-import { handleNotFound, handleBadRequest, handleSuccess, handleServerError } from '../utils/handlers.js';
+import HealthData from "../models/HealthData.js";
+import {
+	handleNotFound,
+	handleSuccess,
+	handleServerError,
+} from "../utils/handlers.js";
 
-// @desc    get HealthData
-// @route   Get /HealthData
-// @access  Private
-export const getHealthData = async (req, res) => {
-    try {
+export const updateHealthDataById = async (req, res) => {
+	const { id } = req.params;
+	const { lifestyle, conditions } = req.body;
 
-        const HealthData = await HealthData.find();
-    handleSuccess(res, HealthData);
+	try {
+		const updateFields = {};
 
-    } catch (error) {
-        handleServerError(res, error);
-    }
-    
-}
+		if (lifestyle) updateFields.lifestyle = lifestyle;
+		if (conditions) updateFields.conditions = conditions;
 
-// @desc    update HealthData
-// @route   Put /HealthData
-// @access  Private
-export const putHealthData = async (req, res) => {
-    try {
+		updateFields.updatedAt = Date.now();
 
-        const { lifestyle, conditions } = req.body;
-    const update = await HealthData.findById(req.params.id);
+		const healthData = await HealthData.findByIdAndUpdate(
+			id,
+			updateFields,
+			{
+				new: true,
+			}
+		);
 
-    if (!update) {
-        handleNotFound(res, 'HealthData not found');
-    }
+		if (!healthData) {
+			return handleNotFound(res, "HealthData not found");
+		}
 
-    const updatedHealthData = await HealthData.findByIdAndUpdate(req.params.id, { lifestyle, conditions }, {new: true});
-    handleSuccess(res, updatedHealthData);
-        
-    } catch (error) {
-        handleServerError(res, error);
-    }
-    
-}
+		return handleSuccess(res, healthData);
+	} catch (err) {
+		handleServerError(res, err);
+	}
+};
 
-// @desc    delete HealthData
-// @route   Delete /HealthData
-// @access  Private
-export const deleteHealthData = async (req, res) => {
-    try {
+export const getLifestyleData = async (req, res) => {
+	const { id } = req.params;
 
-        const getrid = await HealthData.findById(req.params.id);
+	try {
+		const healthData = await HealthData.findById(id);
 
-    if (!getrid) {
-        handleNotFound(res, 'HealthData not found');
-    }
+		if (!healthData) {
+			return handleNotFound(res, "Health Data not found.");
+		}
 
-    const deletedHealthData = await HealthData.findByIdAndDelete(req.params.id);
-    handleSuccess(res, deletedHealthData);
-        
-    } catch (error) {
-        handleServerError(res, error);
-    }
-    
-}
+		return handleSuccess(res, healthData.lifestyle);
+	} catch (err) {
+		return handleServerError(res, "Internal server error");
+	}
+};
 
-export const getLifestyle = async (req, res) => {
+export const getConditionsData = async (req, res) => {
+	const { id } = req.params;
 
-    try {
-        
-        const healthData = await HealthData.findOne({}, 'lifestyle');
-      
-        if (!healthData) {
-          handleNotFound(res, 'HealthData not found');
-        }
-    
-        handleSuccess(res, { lifestyle: healthData.lifestyle });
+	try {
+		const healthData = await HealthData.findById(id);
 
-    } catch (error) {
+		if (!healthData) {
+			return handleNotFound(res, "Health Data not found.");
+		}
 
-        handleServerError(res, error);
-        
-    }
-}
+		return handleSuccess(res, healthData.conditions);
+	} catch (err) {
+		return handleServerError(res, "Server error");
+	}
+};
 
-export const getCondition = async (req, res) => {
+export const deleteHealthDataById = async (req, res) => {
+	const { id } = req.params;
 
-    try {
+	try {
+		const deletedHealthData = await HealthData.findByIdAndRemove(id);
 
-        const healthData = await HealthData.findOne({}, 'condition');
-    
-        if (!healthData) {
-          handleNotFound(res, 'HealthData not found');
-        }
-    
-    
-        handleSuccess( res, { condition: healthData.condition });
-        
-    } catch (error) {
-        
-        handleServerError(res, error);
+		if (!deletedHealthData) {
+			return handleNotFound(res, "Health Data not found.");
+		}
 
-    }
-
-}
+		return handleSuccess(res, { message: "Sucessfuly deleted" });
+	} catch (err) {
+		console.error(err);
+		return handleServerError(res, "Server error");
+	}
+};
