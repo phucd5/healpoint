@@ -6,7 +6,7 @@ import {
 	handleBadRequest,
 	handleServerError,
 	handleNotFound,
-} from ".../utils/handlers.js";
+} from "../utils/handlers.js";
 
 export const register = async (req, res) => {
 	try {
