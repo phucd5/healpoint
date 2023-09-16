@@ -5,7 +5,7 @@ const healthDataSchema = new mongoose.Schema({
 		type: [],
 		required: false,
 	},
-	conditions: {
+	condition: {
 		type: [],
 		required: false,
 	},

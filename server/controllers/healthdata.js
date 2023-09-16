@@ -39,3 +39,29 @@ export const deleteHealthData = asyncHandler(async (req, res) => {
     const deletedHealthData = await HealthData.findByIdAndDelete(req.params.id)
     res.json(deleteduser)
 })
+
+export const getLifestyle = asyncHandler(async (req, res) => {
+
+      const healthData = await HealthData.findOne({}, 'lifestyle');
+      
+      if (!healthData) {
+        return res.status(404).json({ message: 'No health data found' });
+      }
+  
+
+      res.status(200).json({ lifestyle: healthData.lifestyle });
+    }
+)
+
+export const getCondition = asyncHandler(async (req, res) => {
+
+    const healthData = await HealthData.findOne({}, 'condition');
+    
+    if (!healthData) {
+      return res.status(404).json({ message: 'No health data found' });
+    }
+
+
+    res.status(200).json({ condition: healthData.condition });
+  }
+)
