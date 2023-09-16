@@ -1,18 +1,18 @@
 import InputBoxes from "./InputBoxes";
 import InputPasswordBoxes from "./InputPasswordBoxes";
 import SignUpButton from "./SignUpButton";
-import LogInButton from "./LogInButton";
 import "./InputBoxes.css";
+import PasswordConfBoxes from "./PasswordConfirmationBox";
 
-const SignIn = () => {
+const SignUp = () => {
   return (
-    <div className="SignIn">
+    <div className="SignUp">
       <InputBoxes />
       <InputPasswordBoxes />
+      <PasswordConfBoxes />
       <SignUpButton />
-      <LogInButton />
     </div>
   );
 };
 
-export default SignIn;
+export default SignUp;
