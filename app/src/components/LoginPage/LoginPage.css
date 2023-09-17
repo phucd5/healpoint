@@ -1,32 +1,46 @@
+input::placeholder {
+  color: #8ba1e3;
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
 .form-div {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
 }
 
 .form-input {
-	width: 100%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 16px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 15px;
 }
 
 .form-label {
-	font-size: 16px;
-	margin-bottom: 5px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
 }
 
 .submit-btn {
-	width: 108%;
-	padding: 10px;
-	background-color: #007bff;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	font-size: 16px;
-	cursor: pointer;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bold;
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+  background-color: #092fa2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
 }

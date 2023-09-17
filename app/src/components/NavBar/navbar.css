@@ -10,11 +10,25 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-image: url(https://github.com/zincr/app/src/components/images/HealPointLogoW.png);
+  background-size: cover;
+}
+
+.logo {
+  padding-right: 57%;
+  display: flex;
+  position: relative;
+  padding-top: 20px;
+  display: flex;
+  height: 50px;
+  width: auto;
+  justify-content: flex-start;
 }
 
 .nav-list {
-  width: 50%;
+  /* width: 50%; */
   display: flex;
+  justify-content: flex-end;
 }
 
 .nav-list li {
