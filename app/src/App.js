@@ -23,11 +23,30 @@ function App() {
 						path="/question"
 						element={
 							<QuestionPage
-								questions={[
-									"What is your name?",
-									"What is your favorite color?",
-									"What is your quest?",
-								]}
+							questionsAndAnswer={[
+									{
+									  questionText: "What is the capital of France?",
+									  choices: ["Paris", "London", "Berlin", "Madrid"],
+									
+									},
+									{
+									  questionText: "What is 2 + 2?",
+									  choices: ["3", "4", "5", "6"],
+								
+									},
+									{
+									  questionText: "What is the largest mammal?",
+									  choices: ["Elephant", "Blue whale", "Giraffe", "Kangaroo"],
+									
+									},
+									{
+									  questionText: "Who wrote 'To Kill a Mockingbird'?",
+									  choices: ["Harper Lee", "Mark Twain", "George Orwell", "J.K. Rowling"],
+					
+									}
+								  ]
+								  
+								  }
 							/>
 						}
 					/>

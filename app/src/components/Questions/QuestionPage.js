@@ -2,7 +2,7 @@ import { useState } from "react";
 import Question from "./Question";
 import NavBar from "../NavBar/navbar";
 
-const QuestionPage = ({questions}) => {
+const QuestionPage = ({questionsAndAnswer}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [answers, setAnswers] = useState([]);
   
@@ -11,7 +11,7 @@ const QuestionPage = ({questions}) => {
       newAnswers[questionNumber] = answer;
       setAnswers(newAnswers);
   
-      if (currentQuestion < questions.length - 1) {
+      if (currentQuestion < questionsAndAnswer.length - 1) {
         setCurrentQuestion(currentQuestion + 1);
       } else {
         setCurrentQuestion(currentQuestion + 1);
@@ -22,9 +22,10 @@ const QuestionPage = ({questions}) => {
     return (
         <div>
         <NavBar/>
-          {currentQuestion < questions.length ? (
+          {currentQuestion < questionsAndAnswer.length ? (
             <Question 
-              questionText={questions[currentQuestion]} 
+              questionText={questionsAndAnswer[currentQuestion].questionText} 
+              choices = {questionsAndAnswer[currentQuestion].choices}
               questionNumber={currentQuestion} 
               setAnswer={setAnswer} 
             />
