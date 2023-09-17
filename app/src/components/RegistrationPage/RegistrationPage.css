@@ -1,5 +1,11 @@
 input::placeholder {
 	color: #8ba1e3;
+	font-style: italic bold !important;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+select::placeholder {
+	color: #8ba1e3;
 	font-style: italic;
 	font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -44,4 +50,14 @@ input::placeholder {
 	border-radius: 5px;
 	font-size: 16px;
 	cursor: pointer;
+}
+
+.select {
+	font-family: Georgia, "Times New Roman", Times, serif !important;
+	font-weight: bold;
+	margin-bottom: 20px;
+	border: 1px solid black !important;
+	border-radius: 5px;
+	font-size: 16px;
+	padding: 15px;
 }
