@@ -156,9 +156,9 @@ const BodySelector = () => {
 			} else {
 				message += formattedBodyParts[0];
 			}
-
-			alert(message);
-		}
+			alert(message)
+			window.location.href = "http://localhost:3000/question";  // Change '/newPage' to your desired URL
+		};
 	};
 
 	const handleBothClick = (event) => {
@@ -310,8 +310,8 @@ const BodySelector = () => {
 							key={`front-${index}`}
 							className="highlight"
 							style={{
-								left: `${x1 + 307}px`,
-								top: `${y1 + 150}px`,
+								left: `${x1 + 181.5}px`,
+								top: `${y1 + 130}px`,
 								width: `${x2 - x1}px`,
 								height: `${y2 - y1}px`,
 							}}
@@ -328,8 +328,8 @@ const BodySelector = () => {
 							key={`front-${index}`}
 							className="highlight"
 							style={{
-								left: `${x1 + 640}px`,
-								top: `${y1 + 150}px`,
+								left: `${x1 + 765}px`,
+								top: `${y1 + 130}px`,
 								width: `${x2 - x1}px`,
 								height: `${y2 - y1}px`,
 							}}
@@ -344,6 +344,7 @@ const BodySelector = () => {
 						onClick={handleFrontClick}
 						className="images"
 					/>
+					<SubmitButton onClick={handleSubmit} />
 					<img
 						src={backImage}
 						alt="Back"
@@ -352,7 +353,7 @@ const BodySelector = () => {
 					/>
 				</ImageContainer>
 			</PageContainer>
-			<SubmitButton onClick={handleSubmit} />
+			
 		</div>
 	);
 };

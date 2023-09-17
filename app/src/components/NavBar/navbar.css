@@ -15,12 +15,12 @@
 }
 
 .logo {
-  padding-right: 57%;
+  padding-right: 52%;
   display: flex;
   position: relative;
-  padding-top: 20px;
+  padding-top: 1%;
   display: flex;
-  height: 50px;
+  height: 40px;
   width: auto;
   justify-content: flex-start;
 }
@@ -34,8 +34,9 @@
 .nav-list li {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
+  font-size: 25px;
   list-style: none;
-  padding: 26px 30px;
+  padding: 10px 15px;
 }
 
 .nav-list li a {

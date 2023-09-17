@@ -7,7 +7,9 @@ function NavBar() {
   return (
     <nav className="horizontal-nav">
       <ul className="nav-list">
-        <img src={Logo} alt="Logo" className="logo" />
+      <a href="http://localhost:3000/body"  className="logo" >
+        <img src={Logo} alt="Logo"/>
+        </a>
         <li className="Homepage">
           <Link to="/body">Home</Link>
         </li>

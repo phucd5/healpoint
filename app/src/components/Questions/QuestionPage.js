@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Question from "./Question";
+import NavBar from "../NavBar/navbar";
 
 const QuestionPage = ({questions}) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -20,6 +21,7 @@ const QuestionPage = ({questions}) => {
   
     return (
         <div>
+        <NavBar/>
           {currentQuestion < questions.length ? (
             <Question 
               questionText={questions[currentQuestion]} 
