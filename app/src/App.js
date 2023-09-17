@@ -7,6 +7,7 @@ import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
 import QuestionPage from "./components/Questions/QuestionPage";
+import ResponsePage from "./components/ResponsePage/ResponsePage";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					<Route path="/body" element={<BodySelector />} />
 					<Route path="/details" element={<MoreInfoPage />} />
 					<Route path="/form" element={<QForm />} />
+					<Route path="/response" element={<ResponsePage />} />
 					<Route
 						path="/question"
 						element={
