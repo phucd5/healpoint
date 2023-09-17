@@ -11,6 +11,7 @@ import { createGPTResponse } from "../utils/AI.js";
 import { question_prompt } from "../utils/prompt.js";
 import QuestionPage from "../Questions/QuestionPage";
 import RingLoader from "react-spinners/RingLoader";
+import axios from "axios";
 
 const PageContainer = styled.div`
 	display: flex;
@@ -42,17 +43,30 @@ const BodySelector = () => {
 	const imageRef = useRef(null);
 
 	const [user, setUser] = useState(null);
+	const [healthData, setHealthData] = useState(null);
 	const [isSubmitted, setisSubmitted] = useState(false);
 	const [questionsPrompt, setQuestionsPrompt] = useState(null);
 	const [converstation, setConverstation] = useState(null);
 	const [isLoading, setisLoading] = useState(null);
 	const navigate = useNavigate();
 
+	const fetchHealthData = async (responseJson) => {
+		try {
+			const response = await axios.get(
+				`http://localhost:3002/user/${responseJson._id}/healthdata`
+			);
+			setHealthData(response.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	useEffect(() => {
 		const loggedInUser = localStorage.getItem("user");
 		if (loggedInUser) {
 			let responseJson = JSON.parse(loggedInUser);
 			setUser(responseJson);
+			fetchHealthData(responseJson);
 		} else {
 			alert("Please login!");
 			navigate("/login");
@@ -366,6 +380,7 @@ const BodySelector = () => {
 					questionsAndAnswer={questionsPrompt}
 					conversation={converstation}
 					language={user.language}
+					healthData={healthData}
 				/>
 			)}
 		</div>

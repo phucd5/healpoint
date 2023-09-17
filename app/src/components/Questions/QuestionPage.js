@@ -3,7 +3,12 @@ import Question from "./Question";
 import NavBar from "../NavBar/navbar2";
 import AIResponse from "../AIResponse/AIResponse";
 
-const QuestionPage = ({ questionsAndAnswer, conversation, language }) => {
+const QuestionPage = ({
+	questionsAndAnswer,
+	conversation,
+	language,
+	healthData,
+}) => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [answers, setAnswers] = useState([]);
 
@@ -36,6 +41,7 @@ const QuestionPage = ({ questionsAndAnswer, conversation, language }) => {
 			) : (
 				<AIResponse
 					answers={answers}
+					healthData={healthData}
 					conversation={conversation}
 					language={language}
 				/>

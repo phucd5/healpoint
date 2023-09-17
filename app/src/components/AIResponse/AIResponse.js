@@ -7,7 +7,7 @@ import { language_prompt } from "../utils/prompt";
 import RingLoader from "react-spinners/RingLoader";
 
 const AIResponse = (props) => {
-	const { answers, conversation, language } = props;
+	const { answers, conversation, language, healthData } = props;
 	const [aiResults, setAiResults] = useState(null);
 
 	const generateAnswer = async () => {
@@ -28,13 +28,19 @@ const AIResponse = (props) => {
 			responseJson2 = JSON.parse(response2.response);
 		}
 
+		let data_prompt = `The user has the following conditions: ${healthData.conditions}. The user has the following lifestyle ${healthData.lifestyle}`;
+
 		let prompt =
 			formattedResponses.join(", ") +
 			"\n" +
 			diagonsis_prompt +
+			" " +
+			data_prompt +
 			`\nThe language should be ${language}`;
 		const response = await createGPTResponse(conversation, prompt);
 		let responseJson = JSON.parse(response.response);
+
+		console.log(prompt);
 
 		setAiResults({
 			response: responseJson.answer,
