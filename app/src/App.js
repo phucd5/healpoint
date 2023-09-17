@@ -1,10 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/HomePage/Home";
-import SignIn from "./components/SignInPage/SignIn";
-import SignUp from "./components/SignUpPage/SignUp";
 import BodySelector from "./components/BodySelector/BodySelector.js";
 import QForm from "./components/Form/QForm.js";
+import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/body" element={<BodySelector />} />
           <Route path="/form" element={<QForm />} />
+          <Route path="/more" element={<MoreInfoPage />} />
         </Routes>
       </BrowserRouter>
     </div>
