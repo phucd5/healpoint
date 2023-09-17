@@ -6,7 +6,7 @@ import QForm from "./components/Form/QForm.js";
 import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
-import QuestionPage from "./components/Questions/QuestionPage"
+import QuestionPage from "./components/Questions/QuestionPage";
 
 function App() {
 	return (
@@ -19,11 +19,18 @@ function App() {
 					<Route path="/body" element={<BodySelector />} />
 					<Route path="/details" element={<MoreInfoPage />} />
 					<Route path="/form" element={<QForm />} />
-					<Route path="/question" element={<QuestionPage questions={[
-      'What is your name?',
-      'What is your favorite color?',
-      'What is your quest?',
-    ]}/>} />
+					<Route
+						path="/question"
+						element={
+							<QuestionPage
+								questions={[
+									"What is your name?",
+									"What is your favorite color?",
+									"What is your quest?",
+								]}
+							/>
+						}
+					/>
 				</Routes>
 			</BrowserRouter>
 		</div>
