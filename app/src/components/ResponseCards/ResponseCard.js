@@ -10,10 +10,10 @@ const ResponseCard = ({
 }) => {
 	return (
 		<div className="card-boarder" id={key}>
-			<h1> {diagnosisHeader} </h1>
+			{/* <h1> {diagnosisHeader} </h1> */}
 			<p> {diagnosis} </p>
-
-			<h1> {remedyHeader} </h1>
+			<p></p>
+			{/* <h1> {remedyHeader} </h1> */}
 			<p> {remedy} </p>
 		</div>
 	);
