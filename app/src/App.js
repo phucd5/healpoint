@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/HomePage/Home";
 import BodySelector from "./components/BodySelector/BodySelector.js";
+import QForm from "./components/Form/QForm.js";
 import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
