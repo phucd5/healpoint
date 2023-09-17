@@ -20,8 +20,13 @@
 	max-width: 20rem;
 }
 
-.submit-btn {
-	margin-top: 20px;
-	width: 100px;
+.submit-btn-details {
+	width: 150px;
+	padding: 10px;
 	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
 }
