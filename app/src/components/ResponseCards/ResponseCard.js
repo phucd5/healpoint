@@ -11,7 +11,7 @@ const ResponseCard = ({
 	return (
 		<div className="card-boarder" id={key}>
 			{/* <h1> {diagnosisHeader} </h1> */}
-			<p> {diagnosis} </p>
+			<b><p> {diagnosis} </p></b>
 			<p></p>
 			{/* <h1> {remedyHeader} </h1> */}
 			<p> {remedy} </p>

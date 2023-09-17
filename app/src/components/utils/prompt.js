@@ -12,7 +12,7 @@ export const question_prompt = `Pretend to be a doctor. I'm going to give you bo
 	  ]
 	}`;
 
-export const diagonsis_prompt = `Based on these answers, give me 1-3 diagnosis (always giveme at least one) on what could be the problem and any remedy. 
+export const diagonsis_prompt = `Based on these answers, give me 1-3 diagnosis (always giveme at least one diagnosis) on what could be the problem and any remedy. 
 Format it in a JSON like below.  Put the JSON in string and do not say anything else. Don't put it in code box.
 	{
   "answer": [
