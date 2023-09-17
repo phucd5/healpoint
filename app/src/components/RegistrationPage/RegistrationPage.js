@@ -91,8 +91,9 @@ const RegistrationPage = () => {
 							/>
 						</div>
 						<div style={{ marginBottom: "15px" }}>
-							<label className="form-label">Select:</label>
+							<label className="form-label">Preferred Language:</label>
 							<Select
+								className = "select"
 								value={selectedLanguage}
 								onChange={(e) => {
 									setSelectedLangauge(e[0].value);

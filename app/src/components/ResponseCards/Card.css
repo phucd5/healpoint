@@ -1,7 +1,7 @@
 .card-boarder {
 	width: 25rem;
 	border-radius: 1rem;
-	box-shadow: 0px 10px 8px #999;
+	border: 2px solid #092FA2;
 	display: flex;
 	flex-direction: column;
 	margin: 0.5rem;
@@ -13,5 +13,5 @@
 }
 
 h1 {
-	margin: 0.5rem 5%;
+	margin: 1rem 1%;
 }

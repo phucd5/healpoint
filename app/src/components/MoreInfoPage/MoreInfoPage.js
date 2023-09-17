@@ -17,7 +17,27 @@ const MoreInfoPage = (props) => {
 		{ name: "Asthma", code: "AST" },
 		{ name: "Arthritis", code: "ART" },
 		{ name: "Cancer", code: "CNC" },
+		{ name: "Cardiovascular Disease", code: "CVD" },
+		{ name: "High Cholesterol", code: "HCL" },
+		{ name: "Obesity", code: "OBS" },
+		{ name: "Depression", code: "DPR" },
+		{ name: "Anxiety", code: "ANX" },
+		{ name: "Chronic Kidney Disease", code: "CKD" },
+		{ name: "Osteoporosis", code: "OSP" },
+		{ name: "Allergies", code: "ALG" },
+		{ name: "Gastrointestinal Issues", code: "GIS" },
+		{ name: "Thyroid Disorder", code: "TYD" },
+		{ name: "Autoimmune Disease", code: "AUD" },
+		{ name: "Sleep Disorders", code: "SLD" },
+		{ name: "Chronic Pain", code: "CPN" },
+		{ name: "Skin Conditions", code: "SKC" },
+		{ name: "Migraines", code: "MIG" },
+		{ name: "Respiratory Issues", code: "RIS" },
+		{ name: "Liver Disease", code: "LVD" },
+		{ name: "Neurological Disorders", code: "NEU" },
+		{ name: "Substance Abuse", code: "SUA" }
 	];
+	
 
 	const lifestyles = [
 		{ name: "Sedentary", code: "SDT" },
@@ -25,8 +45,26 @@ const MoreInfoPage = (props) => {
 		{ name: "Vegan", code: "VGN" },
 		{ name: "Vegetarian", code: "VGT" },
 		{ name: "Paleo", code: "PAL" },
+		{ name: "Ketogenic", code: "KETO" },
+		{ name: "Mediterranean", code: "MED" },
+		{ name: "Smoker", code: "SMK" },
+		{ name: "Non-Smoker", code: "NSMK" },
+		{ name: "Regular Alcohol Consumption", code: "RAC" },
+		{ name: "No Alcohol Consumption", code: "NAC" },
+		{ name: "Frequent Fast Food", code: "FFF" },
+		{ name: "Balanced Diet", code: "BDT" },
+		{ name: "High-Stress", code: "HST" },
+		{ name: "Low-Stress", code: "LST" },
+		{ name: "Regular Exercise", code: "REX" },
+		{ name: "No Regular Exercise", code: "NRE" },
+		{ name: "Night Shift Work", code: "NSW" },
+		{ name: "Day Shift Work", code: "DSW" },
+		{ name: "Remote Work", code: "RMT" },
+		{ name: "Regular Travel", code: "RTR" },
+		{ name: "Occasional Travel", code: "OTR" },
+		{ name: "No Travel", code: "NTR" }
 	];
-
+	
 	const handleSubmit = async () => {
 		console.log(user);
 		let lifestyles = selectedLifestyle.map((item) => item.name);
@@ -59,7 +97,7 @@ const MoreInfoPage = (props) => {
 
 	return (
 		<div className="multi-select-div">
-			<h2>Please enter any medical conditions or lifestyle:</h2>
+			<h1>Please enter any medical conditions or lifestyle:</h1>
 			<div className="dropdown-container">
 				<div className="card w-full md:w-20rem m-2">
 					<MultiSelect
@@ -72,7 +110,7 @@ const MoreInfoPage = (props) => {
 						className="w-full"
 					/>
 				</div>
-				<div className="card w-full md:w-20rem m-2">
+				<div className="card w-full md:w-40rem m-2">
 					<MultiSelect
 						value={selectedLifestyle}
 						onChange={(e) => setSelectedLifestyle(e.value)}
