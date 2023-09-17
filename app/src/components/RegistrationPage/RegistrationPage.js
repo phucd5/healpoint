@@ -21,6 +21,20 @@ const RegistrationPage = () => {
 		{ value: "English", label: "English" },
 		{ value: "Spanish", label: "Spanish" },
 		{ value: "Vietnamese", label: "Vietnamese" },
+		{ value: "French", label: "French" },
+		{ value: "German", label: "German" },
+		{ value: "Chinese", label: "Chinese" },
+		{ value: "Japanese", label: "Japanese" },
+		{ value: "Russian", label: "Russian" },
+		{ value: "Arabic", label: "Arabic" },
+		{ value: "Hindi", label: "Hindi" },
+		{ value: "Swahili", label: "Swahili" },
+		{ value: "Korean", label: "Korean" },
+		{ value: "Portuguese", label: "Portuguese" },
+		{ value: "Italian", label: "Italian" },
+		{ value: "Dutch", label: "Dutch" },
+		{ value: "Swedish", label: "Swedish" },
+		{ value: "Turkish", label: "Turkish" },
 	];
 
 	const handleChange = (e) => {
