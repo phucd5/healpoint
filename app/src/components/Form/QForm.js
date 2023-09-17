@@ -11,8 +11,6 @@ const QForm = () => {
     A3: "",
   });
 
-  const { A1, A2, A3 } = formData;
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,11 +19,16 @@ const QForm = () => {
     });
   };
 
-  const { steps, currentstepIndex, step, back, next } = useForm([
-    <Q1 value={A1} onChange={handleChange} />,
-    <Q2 value={A2} onChange={handleChange} />,
-    <Q3 value={A3} onChange={handleChange} />,
-  ]);
+  const getSteps = () => [
+    <Q1 value={formData.A1} onChange={handleChange} />,
+    <Q2 value={formData.A2} onChange={handleChange} />,
+    <Q3 value={formData.A3} onChange={handleChange} />,
+  ];
+
+  const { steps, currentStepIndex, step, back, next } = useForm(
+    getSteps,
+    formData
+  );
 
   function onSubmit(e) {
     e.preventDefault();
@@ -50,17 +53,17 @@ const QForm = () => {
             right: ".5rem",
           }}
         >
-          {currentstepIndex + 1} / {steps.length}
+          {currentStepIndex + 1} / {steps.length}
         </div>
         {step}
         <div>
-          {currentstepIndex !== 0 && (
+          {currentStepIndex !== 0 && (
             <button type="button" onClick={back}>
               Back
             </button>
           )}
           <button type="next" onClick={next}>
-            {currentstepIndex === 2 ? "Finish" : "Next"}
+            {currentStepIndex === 2 ? "Finish" : "Next"}
           </button>
         </div>
       </form>

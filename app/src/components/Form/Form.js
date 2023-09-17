@@ -1,13 +1,22 @@
 import { ReactElement, useState } from "react";
 
-export function useForm(steps) {
-  const [currentstepIndex, setCurrentStepIndex] = useState(0);
+export function useForm(getSteps, formData) {
+  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const steps = getSteps(); // <-- Call the function to get the steps
 
-  function next(formData) {
+  function next() {
+    console.log(formData);
     setCurrentStepIndex((i) => {
-      console.log(i);
       if (i >= steps.length - 1) {
-        console.log("hi");
+        return i;
+      }
+      return i + 1;
+    });
+  }
+  function next() {
+    console.log(formData); // Now this should correctly log the formData
+    setCurrentStepIndex((i) => {
+      if (i >= steps.length - 1) {
         return i;
       }
       return i + 1;
@@ -24,8 +33,8 @@ export function useForm(steps) {
   function goTo(index) {}
 
   return {
-    currentstepIndex,
-    step: steps[currentstepIndex],
+    currentStepIndex,
+    step: steps[currentStepIndex],
     steps,
     goTo,
     next,
