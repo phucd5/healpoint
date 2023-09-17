@@ -35,9 +35,8 @@ const MoreInfoPage = (props) => {
 		{ name: "Respiratory Issues", code: "RIS" },
 		{ name: "Liver Disease", code: "LVD" },
 		{ name: "Neurological Disorders", code: "NEU" },
-		{ name: "Substance Abuse", code: "SUA" }
+		{ name: "Substance Abuse", code: "SUA" },
 	];
-	
 
 	const lifestyles = [
 		{ name: "Sedentary", code: "SDT" },
@@ -62,11 +61,10 @@ const MoreInfoPage = (props) => {
 		{ name: "Remote Work", code: "RMT" },
 		{ name: "Regular Travel", code: "RTR" },
 		{ name: "Occasional Travel", code: "OTR" },
-		{ name: "No Travel", code: "NTR" }
+		{ name: "No Travel", code: "NTR" },
 	];
-	
+
 	const handleSubmit = async () => {
-		console.log(user);
 		let lifestyles = selectedLifestyle.map((item) => item.name);
 		let conditions = selectedConditions.map((item) => item.name);
 
@@ -82,13 +80,12 @@ const MoreInfoPage = (props) => {
 			);
 
 			const response = await axios.put(
-				`http://localhost:3002/health-data/${responseHealth.data}`,
+				`http://localhost:3002/health-data/${responseHealth.data._id}`,
 				{
 					conditions: conditions,
 					lifestyle: lifestyles,
 				}
 			);
-			console.log(response.data);
 			navigate("/login");
 		} catch (error) {
 			alert(error);

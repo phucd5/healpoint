@@ -21,14 +21,12 @@ const QuestionPage = ({
 			setCurrentQuestion(currentQuestion + 1);
 		} else {
 			setCurrentQuestion(currentQuestion + 1);
-			console.log("Quiz finished. Answers:", newAnswers);
 		}
 	};
 
 	return (
 		<div>
 			<NavBar />
-			{console.log(questionsAndAnswer)}
 			{currentQuestion < questionsAndAnswer.length ? (
 				<Question
 					questionText={

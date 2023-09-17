@@ -184,7 +184,6 @@ const BodySelector = () => {
 			setQuestionsPrompt(responseJson.questions);
 			setisSubmitted(true);
 			setisLoading(false);
-			console.log("Done");
 		}
 	};
 
@@ -243,8 +242,6 @@ const BodySelector = () => {
 
 		handleBothClick(event);
 
-		console.log("this is x,y of front click: ", x, y);
-
 		for (const part in frontParts) {
 			const { x1, y1, x2, y2 } = frontParts[part];
 			if (isPointInRectangle(x, y, x1, y1, x2, y2)) {
@@ -274,8 +271,6 @@ const BodySelector = () => {
 		const y = event.clientY - rect.top;
 
 		handleBothClick(event);
-
-		console.log("this is x,y of back click: ", x, y);
 
 		for (const part in backParts) {
 			const { x1, y1, x2, y2 } = backParts[part];

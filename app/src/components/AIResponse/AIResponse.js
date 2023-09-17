@@ -24,7 +24,6 @@ const AIResponse = (props) => {
 		if (language !== "English") {
 			let prompt2 = language_prompt + `Language: ${language}`;
 			const response2 = await createGPTResponse([], prompt2);
-			console.log(response2);
 			responseJson2 = JSON.parse(response2.response);
 		}
 
@@ -39,8 +38,6 @@ const AIResponse = (props) => {
 			`\nThe language should be ${language}`;
 		const response = await createGPTResponse(conversation, prompt);
 		let responseJson = JSON.parse(response.response);
-
-		console.log(prompt);
 
 		setAiResults({
 			response: responseJson.answer,
