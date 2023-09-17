@@ -2,7 +2,7 @@ export const question_prompt = `Pretend to be a doctor. I'm going to give you bo
 	{
 	  "questions": [
 		{
-		  "question": "",
+		  "questionText": "",
 		  "choices": [
 			"A",
 			"B.",

@@ -2,8 +2,9 @@ import { useState } from "react";
 import Question from "./Question";
 import NavBar from "../NavBar/navbar";
 import AIResponse from "../AIResponse/AIResponse";
+import { useRef, useEffect } from "react";
 
-const QuestionPage = ({ questionsAndAnswer }) => {
+const QuestionPage = ({ questionsAndAnswer, conversation }) => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [answers, setAnswers] = useState([]);
 
@@ -23,6 +24,8 @@ const QuestionPage = ({ questionsAndAnswer }) => {
 	return (
 		<div>
 			<NavBar />
+			{console.log("test")}
+			{console.log(questionsAndAnswer)}
 			{currentQuestion < questionsAndAnswer.length ? (
 				<Question
 					questionText={
@@ -33,7 +36,7 @@ const QuestionPage = ({ questionsAndAnswer }) => {
 					setAnswer={setAnswer}
 				/>
 			) : (
-				<AIResponse answers={answers} />
+				<AIResponse answers={answers} conversation={conversation} />
 			)}
 		</div>
 	);

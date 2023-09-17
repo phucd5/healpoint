@@ -1,20 +1,19 @@
-const { Configuration, OpenAIApi } = require("openai");
+const OpenAI = require("openai");
 
-export const createGPTResponse = async (conversation, apiKey, newPrompt) => {
-	const openAi = new OpenAIApi(
-		new Configuration({
-			apiKey: apiKey,
-		})
-	);
+export const createGPTResponse = async (conversation, newPrompt) => {
+	const openai = new OpenAI({
+		apiKey: process.env.REACT_APP_OPENAI_API_KEY,
+		dangerouslyAllowBrowser: true,
+	});
 
 	conversation.push({ role: "user", content: newPrompt });
 
-	const completion = await openAi.createChatCompletion({
+	const completion = await openai.chat.completions.create({
 		model: "gpt-3.5-turbo",
 		messages: conversation,
 	});
 
-	const gptResponse = completion.data.choices[0].message.content;
+	const gptResponse = completion.choices[0].message.content;
 	const updatedConversation = [
 		...conversation,
 		{ role: "assistant", content: gptResponse },

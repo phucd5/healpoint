@@ -1,30 +1,40 @@
 .images {
-  width: 50% !important;
-  height: auto !important;
+	width: 50% !important;
+	height: auto !important;
 }
 
 .highlight {
-  position: absolute;
-  background-color: red;
-  opacity: 0.5;
-  pointer-events: none;
+	position: absolute;
+	background-color: red;
+	opacity: 0.5;
+	pointer-events: none;
 }
 .button-container {
-  background-color: #f2f2f2;
-  padding-bottom: 2%;
+	background-color: #f2f2f2;
+	padding-bottom: 2%;
 }
 .submit-button {
-  font-size: 20px;
-  background-color: #092fa2; /* Makes the button blend with the background */
-  border: none;
-  width: 250px;
-  height: 80px;
-  color: white;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: xx-large;
-  margin-top: 60vh;
-  /* margin-right: auto; */
-  border-radius: 25px;
+	font-size: 20px;
+	background-color: #092fa2; /* Makes the button blend with the background */
+	border: none;
+	width: 250px;
+	height: 80px;
+	color: white;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: xx-large;
+	margin-top: 60vh;
+	/* margin-right: auto; */
+	border-radius: 25px;
+}
+
+.loader-div {
+	display: flex;
+	flex-direction: row; /* Stack the cards horizontally */
+	align-items: center; /* Center children vertically */
+	justify-content: center; /* Center children horizontally */
+	height: 100vh;
+	background-color: white;
+	gap: 25px; /* Gap between cards */
 }

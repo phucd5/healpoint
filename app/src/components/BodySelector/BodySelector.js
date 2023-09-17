@@ -7,6 +7,10 @@ import backImage from "../images/Back.png";
 import "./style.css";
 import NavBar from "../NavBar/navbar";
 import SubmitButton from "./submit";
+import { createGPTResponse } from "../utils/AI.js";
+import { question_prompt } from "../utils/prompt.js";
+import QuestionPage from "../Questions/QuestionPage";
+import RingLoader from "react-spinners/RingLoader";
 
 const PageContainer = styled.div`
 	display: flex;
@@ -49,6 +53,10 @@ const BodySelector = () => {
 	const [frontRect, setFrontRect] = useState({ top: 0, left: 0 });
 
 	const [user, setUser] = useState(null);
+	const [isSubmitted, setisSubmitted] = useState(false);
+	const [questionsPrompt, setQuestionsPrompt] = useState(null);
+	const [converstation, setConverstation] = useState(null);
+	const [isLoading, setisLoading] = useState(null);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -154,23 +162,34 @@ const BodySelector = () => {
 		right_arm: "left_arm",
 	};
 
-	const handleSubmit = () => {
+	const handleSubmit = async () => {
 		if (body.length === 0) {
 			alert("Congratulations, you haven't reported any pain!");
 		} else {
-			const formattedBodyParts = body.map((part) =>
-				part.replace(/_/g, " ")
-			);
-			let message = `You have indicated pain in `;
+			let prompt = question_prompt;
+			prompt = question_prompt + "Body Parts: " + body.join(", ");
+			setisLoading(true);
+			const response = await createGPTResponse([], prompt);
+			setConverstation(response.conversation);
+			let responseJson = JSON.parse(response.response);
+			setQuestionsPrompt(responseJson.questions);
+			setisSubmitted(true);
+			setisLoading(false);
+			console.log("Done");
+			// <QuestionPage questionsAndAnswer={response.response} />;
+			// const formattedBodyParts = body.map((part) =>
+			// 	part.replace(/_/g, " ")
+			// );
+			// let message = `You have indicated pain in `;
 
-			if (formattedBodyParts.length > 1) {
-				const lastPart = formattedBodyParts.pop();
-				message += formattedBodyParts.join(", ") + ", and " + lastPart;
-			} else {
-				message += formattedBodyParts[0];
-			}
-			alert(message);
-			window.location.href = "http://localhost:3000/question"; // Change '/newPage' to your desired URL
+			// if (formattedBodyParts.length > 1) {
+			// 	const lastPart = formattedBodyParts.pop();
+			// 	message += formattedBodyParts.join(", ") + ", and " + lastPart;
+			// } else {
+			// 	message += formattedBodyParts[0];
+			// }
+			// alert(message);
+			// window.location.href = "http://localhost:3000/question"; // Change '/newPage' to your desired URL
 		}
 	};
 
@@ -312,60 +331,85 @@ const BodySelector = () => {
 
 	return (
 		<div>
-			<NavBar />
-			<PageContainer>
-				{frontHighlight.map((part, index) => {
-					const { x1, y1, x2, y2 } = frontParts.hasOwnProperty(part)
-						? frontParts[part]
-						: bothParts[part];
-					return (
-						<div
-							key={`front-${index}`}
-							className="highlight"
-							style={{
-								left: `${x1 + 181.5}px`,
-								top: `${y1 + 130}px`,
-								width: `${x2 - x1}px`,
-								height: `${y2 - y1}px`,
-							}}
-						></div>
-					);
-				})}
-				{backHighlight.map((part, index) => {
-					const { x1, y1, x2, y2 } = backParts.hasOwnProperty(part)
-						? backParts[part]
-						: bothParts[part];
+			{!isSubmitted ? (
+				isLoading ? (
+					// Render this when isSubmitted is false and isLoading is true
+					<div>
+						<NavBar />
+						<div className="loader-div">
+							<RingLoader color="#0194ff" />
+						</div>
+					</div>
+				) : (
+					// Render this when isSubmitted is false and isLoading is false
+					<div>
+						<NavBar />
+						<PageContainer>
+							{frontHighlight.map((part, index) => {
+								const { x1, y1, x2, y2 } =
+									frontParts.hasOwnProperty(part)
+										? frontParts[part]
+										: bothParts[part];
+								return (
+									<div
+										key={`front-${index}`}
+										className="highlight"
+										style={{
+											left: `${x1 + 181.5}px`,
+											top: `${y1 + 130}px`,
+											width: `${x2 - x1}px`,
+											height: `${y2 - y1}px`,
+										}}
+									></div>
+								);
+							})}
+							{backHighlight.map((part, index) => {
+								const { x1, y1, x2, y2 } =
+									backParts.hasOwnProperty(part)
+										? backParts[part]
+										: bothParts[part];
 
-					return (
-						<div
-							key={`front-${index}`}
-							className="highlight"
-							style={{
-								left: `${x1 + 765}px`,
-								top: `${y1 + 130}px`,
-								width: `${x2 - x1}px`,
-								height: `${y2 - y1}px`,
-							}}
-						></div>
-					);
-				})}
-				<ImageContainer>
-					<img
-						ref={imageRef}
-						src={frontImage}
-						alt="Front"
-						onClick={handleFrontClick}
-						className="images"
-					/>
-					<SubmitButton onClick={handleSubmit} />
-					<img
-						src={backImage}
-						alt="Back"
-						onClick={handleBackClick}
-						className="images"
-					/>
-				</ImageContainer>
-			</PageContainer>
+								return (
+									<div
+										key={`back-${index}`}
+										className="highlight"
+										style={{
+											left: `${x1 + 765}px`,
+											top: `${y1 + 130}px`,
+											width: `${x2 - x1}px`,
+											height: `${y2 - y1}px`,
+										}}
+									></div>
+								);
+							})}
+							<ImageContainer>
+								<img
+									ref={imageRef}
+									src={frontImage}
+									alt="Front"
+									onClick={handleFrontClick}
+									className="images"
+								/>
+								<SubmitButton
+									onClick={handleSubmit}
+									disabled={isLoading}
+								/>
+								<img
+									src={backImage}
+									alt="Back"
+									onClick={handleBackClick}
+									className="images"
+								/>
+							</ImageContainer>
+						</PageContainer>
+					</div>
+				)
+			) : (
+				<QuestionPage
+					questionsAndAnswer={questionsPrompt}
+					conversation={converstation}
+				/>
+			)}
 		</div>
 	);
 };
