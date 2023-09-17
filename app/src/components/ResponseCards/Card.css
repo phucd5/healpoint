@@ -1,6 +1,7 @@
 .card-boarder {
 	width: 25rem;
 	border-radius: 1rem;
+	border: 2px solid #092FA2;
 	box-shadow: 0px 10px 8px #999;
 	transform: translateY(-5px);
 	display: flex;
