@@ -1,6 +1,5 @@
 import React from "react";
 import "./Card.css";
-import { createGPTResponse } from "../utils/AI.js";
 
 const ResponseCard = ({
 	key,

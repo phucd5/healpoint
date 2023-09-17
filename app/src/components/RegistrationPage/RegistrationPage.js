@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./RegistrationPage.css";
 import MoreInfoPage from "../MoreInfoPage/MoreInfoPage";
@@ -31,8 +30,6 @@ const RegistrationPage = () => {
 			[name]: value,
 		});
 	};
-
-	const navigate = useNavigate();
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

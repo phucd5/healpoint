@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Question from "./Question";
-import NavBar from "../NavBar/navbar";
+import NavBar from "../NavBar/navbar2";
 import AIResponse from "../AIResponse/AIResponse";
-import { useRef, useEffect } from "react";
 
 const QuestionPage = ({ questionsAndAnswer, conversation, language }) => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);

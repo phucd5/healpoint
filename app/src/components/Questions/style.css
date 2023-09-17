@@ -1,46 +1,43 @@
-
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;
-  }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+}
 
-label{
-    font-size: 45px;
+label {
+	font-size: 45px;
 	margin-bottom: 5%;
 }
 .choices {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between; /* Distribute buttons horizontally */
-    width: 80%; /* Full width of the parent container */
-  }
-  
-  button {
-    background-color: #092FA2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 30px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    cursor: pointer;
-    width: 20%; 
-    padding: 1%;
-    text-align: center; /* Center the text inside the button */
-  }
-  
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between; /* Distribute buttons horizontally */
+	width: 80%; /* Full width of the parent container */
+}
 
+button {
+	background-color: #092fa2;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 30px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	cursor: pointer;
+	width: 20%;
+	padding: 1%;
+	text-align: center; /* Center the text inside the button */
+}
 
-.endText{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100%;  
-    font-size: 40px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.endText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+	font-size: 40px;
+	font-family: Georgia, "Times New Roman", Times, serif;
 }

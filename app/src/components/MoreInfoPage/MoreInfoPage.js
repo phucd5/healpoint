@@ -29,14 +29,14 @@ const MoreInfoPage = (props) => {
 
 	const handleSubmit = async () => {
 		console.log(user);
-		const lifestyles = selectedLifestyle.map((item) => item.name);
-		const conditions = selectedConditions.map((item) => item.name);
+		let lifestyles = selectedLifestyle.map((item) => item.name);
+		let conditions = selectedConditions.map((item) => item.name);
 
 		if (selectedLifestyle == null) {
-			lifestyles = []
+			lifestyles = [];
 		}
 		if (selectedConditions == null) {
-			conditions = []
+			conditions = [];
 		}
 		try {
 			const responseHealth = await axios.get(

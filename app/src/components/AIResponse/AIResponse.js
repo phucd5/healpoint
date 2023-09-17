@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { diagonsis_prompt } from "../utils/prompt.js";
 import { createGPTResponse } from "../utils/AI.js";
 import ResponseCard from "../ResponseCards/ResponseCard.js";
@@ -21,7 +21,7 @@ const AIResponse = (props) => {
 			remedy: "Remedy",
 		};
 
-		if (language != "English") {
+		if (language !== "English") {
 			let prompt2 = language_prompt + `Language: ${language}`;
 			const response2 = await createGPTResponse([], prompt2);
 			console.log(response2);
@@ -44,12 +44,12 @@ const AIResponse = (props) => {
 	};
 
 	useEffect(() => {
-		generateAnswer();
+		generateAnswer(); // eslint-disable-next-line
 	}, []);
 
 	return (
 		<div className="response-div">
-			{aiResults ? (
+			{aiResults && aiResults.response.length > 0 ? (
 				aiResults.response.map((item, index) => (
 					<ResponseCard
 						key={index}

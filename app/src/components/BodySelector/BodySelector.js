@@ -2,8 +2,8 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import frontImage from "../images/Front.png";
-import backImage from "../images/Back.png";
+import frontImage from "../../images/Front.png";
+import backImage from "../../images/Back.png";
 import "./style.css";
 import NavBar from "../NavBar/navbar2";
 import SubmitButton from "./submit";
@@ -26,9 +26,6 @@ const ImageContainer = styled.div`
 	height: 80vh;
 `;
 
-const width = 2114 * 0.8;
-const height = 3353 * 0.8;
-
 function isPointInRectangle(px, py, x1, y1, x2, y2) {
 	const minX = Math.min(x1, x2);
 	const maxX = Math.max(x1, x2);
@@ -38,19 +35,11 @@ function isPointInRectangle(px, py, x1, y1, x2, y2) {
 	return minX <= px && px <= maxX && minY <= py && py <= maxY;
 }
 
-const Highlight = styled.div`
-	position: absolute;
-	border: 2px solid red;
-	background-color: rgba(255, 0, 0, 0.4);
-`;
-
 const BodySelector = () => {
 	const [body, setBody] = useState([]);
 	const [frontHighlight, setfrontHighlight] = useState([]);
 	const [backHighlight, setbackHighlight] = useState([]);
-	const [scalingFactor, setScalingFactor] = useState({ x: 1, y: 1 });
 	const imageRef = useRef(null);
-	const [frontRect, setFrontRect] = useState({ top: 0, left: 0 });
 
 	const [user, setUser] = useState(null);
 	const [isSubmitted, setisSubmitted] = useState(false);
@@ -67,7 +56,7 @@ const BodySelector = () => {
 		} else {
 			alert("Please login!");
 			navigate("/login");
-		}
+		} // eslint-disable-next-line
 	}, []);
 
 	const frontParts = {
@@ -234,7 +223,6 @@ const BodySelector = () => {
 
 	const handleFrontClick = (event) => {
 		const rect = event.target.getBoundingClientRect();
-		setFrontRect({ top: rect.top, left: rect.left });
 
 		const x = event.clientX - rect.left;
 		const y = event.clientY - rect.top;
@@ -264,18 +252,9 @@ const BodySelector = () => {
 			}
 		}
 	};
-	useEffect(() => {
-		if (imageRef.current) {
-			setScalingFactor({
-				x: imageRef.current.width / width,
-				y: imageRef.current.height / height,
-			});
-		}
-	}, []);
 
 	const handleBackClick = (event) => {
 		const rect = event.target.getBoundingClientRect();
-		setFrontRect({ top: rect.top, left: rect.left });
 
 		const x = event.clientX - rect.left;
 		const y = event.clientY - rect.top;
