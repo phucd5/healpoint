@@ -1,3 +1,4 @@
+
 .multi-select-div {
 	display: flex;
 	flex-direction: column;
@@ -10,23 +11,28 @@
 .dropdown-container {
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: flex-start; /* Align at the top */
 	justify-content: center;
-	gap: 20px;
+	gap: 40px;  /* Adjust as needed */
 }
 
 .card {
 	width: 100%;
-	max-width: 20rem;
+	max-width: 10%rem;
 }
 
 .submit-btn-details {
-	width: 150px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: bold;
+	width: 20rem;
+	height: 10%;
 	padding: 10px;
-	background-color: #007bff;
+	background-color: #092fa2;
 	color: white;
 	border: none;
 	border-radius: 5px;
-	font-size: 16px;
+	font-size: 24px;
 	cursor: pointer;
 }
+
+
