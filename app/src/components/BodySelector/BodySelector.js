@@ -173,7 +173,7 @@ const BodySelector = () => {
 				question_prompt +
 				"Body Parts: " +
 				body.join(", ") +
-				`\nThe language should be ${"English"}`;
+				`\nThe language should be ${user.language}`;
 			setisLoading(true);
 			const response = await createGPTResponse([], prompt);
 			setConverstation(response.conversation);
@@ -199,12 +199,6 @@ const BodySelector = () => {
 				const opposite = oppositePart[part];
 
 				if (body.includes(part)) {
-					//alert(
-					//	`${part.replace(/_/g, " ")} and ${opposite.replace(
-					//		/_/g,
-					//		" "
-					//	)} removed`
-					//);
 					setBody((prevBody) =>
 						prevBody.filter(
 							(item) => item !== part && item !== opposite
@@ -221,12 +215,6 @@ const BodySelector = () => {
 						)
 					);
 				} else {
-					//alert(
-					//	`${part.replace(/_/g, " ")} and ${opposite.replace(
-					//		/_/g,
-					//		" "
-					//	)} added`
-					//);
 					setBody((prevBody) => [...prevBody, part, opposite]);
 					setfrontHighlight((prevBody) => [
 						...prevBody,
@@ -398,7 +386,7 @@ const BodySelector = () => {
 				<QuestionPage
 					questionsAndAnswer={questionsPrompt}
 					conversation={converstation}
-					language={"English"}
+					language={user.language}
 				/>
 			)}
 		</div>
