@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./style.css";
 import front from "../images/Front.png";
 import back from "../images/Back.png";
-import SubmitButton from "./submit";
+import SubmitButton from "../BodySelector/submit";
 
 const Home = () => {
 	//name: (x1,y1,x2,y2)
