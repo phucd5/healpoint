@@ -106,14 +106,12 @@ const Home = () => {
 							(highlight) => highlight !== actualBodyPart
 						)
 					);
-					alert(`removed ${actualBodyPart}`);
 				} else {
 					setBody((prevBody) => [...prevBody, actualBodyPart]);
 					setHighlights((prevHighlights) => [
 						...prevHighlights,
 						actualBodyPart,
 					]);
-					alert(`added ${actualBodyPart}`);
 				}
 				break;
 			}
