@@ -32,6 +32,12 @@ const MoreInfoPage = (props) => {
 		const lifestyles = selectedLifestyle.map((item) => item.name);
 		const conditions = selectedConditions.map((item) => item.name);
 
+		if (selectedLifestyle == null) {
+			lifestyles = []
+		}
+		if (selectedConditions == null) {
+			conditions = []
+		}
 		try {
 			const responseHealth = await axios.get(
 				`http://localhost:3002/user/${user._id}/healthdata`

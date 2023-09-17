@@ -5,7 +5,7 @@ import styled from "styled-components";
 import frontImage from "../images/Front.png";
 import backImage from "../images/Back.png";
 import "./style.css";
-import NavBar from "../NavBar/navbar";
+import NavBar from "../NavBar/navbar2";
 import SubmitButton from "./submit";
 import { createGPTResponse } from "../utils/AI.js";
 import { question_prompt } from "../utils/prompt.js";
@@ -199,12 +199,12 @@ const BodySelector = () => {
 				const opposite = oppositePart[part];
 
 				if (body.includes(part)) {
-					alert(
-						`${part.replace(/_/g, " ")} and ${opposite.replace(
-							/_/g,
-							" "
-						)} removed`
-					);
+					//alert(
+					//	`${part.replace(/_/g, " ")} and ${opposite.replace(
+					//		/_/g,
+					//		" "
+					//	)} removed`
+					//);
 					setBody((prevBody) =>
 						prevBody.filter(
 							(item) => item !== part && item !== opposite
@@ -221,12 +221,12 @@ const BodySelector = () => {
 						)
 					);
 				} else {
-					alert(
-						`${part.replace(/_/g, " ")} and ${opposite.replace(
-							/_/g,
-							" "
-						)} added`
-					);
+					//alert(
+					//	`${part.replace(/_/g, " ")} and ${opposite.replace(
+					//		/_/g,
+					//		" "
+					//	)} added`
+					//);
 					setBody((prevBody) => [...prevBody, part, opposite]);
 					setfrontHighlight((prevBody) => [
 						...prevBody,
@@ -259,7 +259,7 @@ const BodySelector = () => {
 			const { x1, y1, x2, y2 } = frontParts[part];
 			if (isPointInRectangle(x, y, x1, y1, x2, y2)) {
 				if (body.includes(part)) {
-					alert(`${part.replace(/_/g, " ")} removed`);
+					//alert(`${part.replace(/_/g, " ")} removed`);
 					setBody((prevBody) =>
 						prevBody.filter((item) => item !== part)
 					);
@@ -268,7 +268,7 @@ const BodySelector = () => {
 					);
 					break;
 				} else {
-					alert(`${part.replace(/_/g, " ")} added`);
+					//alert(`${part.replace(/_/g, " ")} added`);
 					setBody((prevBody) => [...prevBody, part]);
 					setfrontHighlight((prevBody) => [...prevBody, part]);
 					break;
@@ -301,7 +301,7 @@ const BodySelector = () => {
 
 			if (isPointInRectangle(x, y, x1, y1, x2, y2)) {
 				if (body.includes(part)) {
-					alert(`${part.replace(/_/g, " ")} removed`);
+					//alert(`${part.replace(/_/g, " ")} removed`);
 					setBody((prevBody) =>
 						prevBody.filter((item) => item !== part)
 					);
@@ -310,7 +310,7 @@ const BodySelector = () => {
 					);
 					break;
 				} else {
-					alert(`${part.replace(/_/g, " ")} added`);
+					//alert(`${part.replace(/_/g, " ")} added`);
 					setBody((prevBody) => [...prevBody, part]);
 					setbackHighlight((prevBody) => [...prevBody, part]);
 					break;
