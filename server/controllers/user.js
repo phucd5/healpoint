@@ -36,13 +36,17 @@ export const getUserByEmail = async (req, res) => {
 
 export const getUserHealthData = async (req, res) => {
 	try {
-		const user = await User.findById(req.params.userId);
+		const user = await User.findById(req.params.userId).populate(
+			"healthData"
+		);
+
 		if (!user) {
 			return handleNotFound(res, "User not found");
 		}
+
 		handleSuccess(res, user.healthData);
 	} catch (error) {
-		handleServerError(res, err);
+		handleServerError(res, error);
 	}
 };
 
