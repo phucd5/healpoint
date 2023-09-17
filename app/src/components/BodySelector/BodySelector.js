@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import frontImage from "../images/Front.png";
 import backImage from "../images/Back.png";
@@ -46,6 +47,18 @@ const BodySelector = () => {
 	const [scalingFactor, setScalingFactor] = useState({ x: 1, y: 1 });
 	const imageRef = useRef(null);
 	const [frontRect, setFrontRect] = useState({ top: 0, left: 0 });
+
+	const [user, setUser] = useState(null);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		const loggedInUser = localStorage.getItem("user");
+		console.log(loggedInUser);
+		if (!loggedInUser) {
+			alert("Please login!");
+			navigate("/login");
+		}
+	}, []);
 
 	const frontParts = {
 		head: {
@@ -156,9 +169,9 @@ const BodySelector = () => {
 			} else {
 				message += formattedBodyParts[0];
 			}
-			alert(message)
-			window.location.href = "http://localhost:3000/question";  // Change '/newPage' to your desired URL
-		};
+			alert(message);
+			window.location.href = "http://localhost:3000/question"; // Change '/newPage' to your desired URL
+		}
 	};
 
 	const handleBothClick = (event) => {
@@ -353,7 +366,6 @@ const BodySelector = () => {
 					/>
 				</ImageContainer>
 			</PageContainer>
-			
 		</div>
 	);
 };
