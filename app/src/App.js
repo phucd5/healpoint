@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/HomePage/Home";
-import SignIn from "./components/SignInPage/SignIn";
-import SignUp from "./components/SignUpPage/SignUp";
 import BodySelector from "./components/BodySelector/BodySelector.js";
+import RegistrationPage from "./components/RegistrationPage/RegistrationPage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
 
 function App() {
 	return (
@@ -11,9 +12,10 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/sign-in" element={<SignIn />} />
-					<Route path="/sign-up" element={<SignUp />} />
+					<Route path="/sign-in" element={<LoginPage />} />
+					<Route path="/sign-up" element={<RegistrationPage />} />
 					<Route path="/body" element={<BodySelector />} />
+					<Route path="/more" element={<MoreInfoPage />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
