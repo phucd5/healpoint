@@ -45,7 +45,7 @@ const MoreInfoPage = (props) => {
 				}
 			);
 			console.log(response.data);
-			navigate("/body");
+			navigate("/login");
 		} catch (error) {
 			alert(error);
 		}

@@ -1,13 +1,20 @@
 import React from "react";
 import "./Card.css";
+import { createGPTResponse } from "../utils/AI.js";
 
-const ResponseCard = ({ diagnosis, remedy }) => {
+const ResponseCard = ({
+	key,
+	diagnosis,
+	remedy,
+	diagnosisHeader,
+	remedyHeader,
+}) => {
 	return (
-		<div className="card-boarder">
-			<h1> Diagnosis </h1>
+		<div className="card-boarder" id={key}>
+			<h1> {diagnosisHeader} </h1>
 			<p> {diagnosis} </p>
 
-			<h1> Remedy </h1>
+			<h1> {remedyHeader} </h1>
 			<p> {remedy} </p>
 		</div>
 	);

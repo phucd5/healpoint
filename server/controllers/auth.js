@@ -10,7 +10,7 @@ import {
 
 export const register = async (req, res) => {
 	try {
-		const { firstName, lastName, email, password } = req.body;
+		const { firstName, lastName, email, password, language } = req.body;
 
 		const salt = await bcrypt.genSalt(10);
 		const passwordHash = await bcrypt.hash(password, salt);
@@ -22,6 +22,7 @@ export const register = async (req, res) => {
 			firstName,
 			lastName,
 			email,
+			language,
 			password: passwordHash,
 			healthData: savedHealthData.id,
 		});

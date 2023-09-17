@@ -23,3 +23,7 @@ Format it in a JSON like below.  Put the JSON in string and do not say anything 
     },
   ]
 }`;
+
+export const language_prompt = `Translate "Diagonsis" and "Remedy" into the followign language I give into the JSON string. Don't say anything else after that. Don't put JSON in code block. Capitalize the first letter of the translated word.
+{"diagnosis": 
+ "remedy:"}`;

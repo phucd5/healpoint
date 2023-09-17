@@ -4,10 +4,12 @@ const healthDataSchema = new mongoose.Schema({
 	lifestyle: {
 		type: [],
 		required: false,
+		default: [],
 	},
 	conditions: {
 		type: [],
 		required: false,
+		default: [],
 	},
 });
 

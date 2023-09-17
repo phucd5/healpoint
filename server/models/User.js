@@ -18,6 +18,11 @@ const UserSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	language: {
+		type: String,
+		required: false,
+		default: "English",
+	},
 	healthData: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "HealthData",

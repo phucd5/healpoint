@@ -61,8 +61,10 @@ const BodySelector = () => {
 
 	useEffect(() => {
 		const loggedInUser = localStorage.getItem("user");
-		console.log(loggedInUser);
-		if (!loggedInUser) {
+		if (loggedInUser) {
+			let responseJson = JSON.parse(loggedInUser);
+			setUser(responseJson);
+		} else {
 			alert("Please login!");
 			navigate("/login");
 		}
@@ -167,7 +169,11 @@ const BodySelector = () => {
 			alert("Congratulations, you haven't reported any pain!");
 		} else {
 			let prompt = question_prompt;
-			prompt = question_prompt + "Body Parts: " + body.join(", ");
+			prompt =
+				question_prompt +
+				"Body Parts: " +
+				body.join(", ") +
+				`\nThe language should be ${"English"}`;
 			setisLoading(true);
 			const response = await createGPTResponse([], prompt);
 			setConverstation(response.conversation);
@@ -176,20 +182,6 @@ const BodySelector = () => {
 			setisSubmitted(true);
 			setisLoading(false);
 			console.log("Done");
-			// <QuestionPage questionsAndAnswer={response.response} />;
-			// const formattedBodyParts = body.map((part) =>
-			// 	part.replace(/_/g, " ")
-			// );
-			// let message = `You have indicated pain in `;
-
-			// if (formattedBodyParts.length > 1) {
-			// 	const lastPart = formattedBodyParts.pop();
-			// 	message += formattedBodyParts.join(", ") + ", and " + lastPart;
-			// } else {
-			// 	message += formattedBodyParts[0];
-			// }
-			// alert(message);
-			// window.location.href = "http://localhost:3000/question"; // Change '/newPage' to your desired URL
 		}
 	};
 
@@ -296,8 +288,6 @@ const BodySelector = () => {
 	const handleBackClick = (event) => {
 		const rect = event.target.getBoundingClientRect();
 		setFrontRect({ top: rect.top, left: rect.left });
-
-		// console.log(rect.top, rect.left);
 
 		const x = event.clientX - rect.left;
 		const y = event.clientY - rect.top;
@@ -408,6 +398,7 @@ const BodySelector = () => {
 				<QuestionPage
 					questionsAndAnswer={questionsPrompt}
 					conversation={converstation}
+					language={"English"}
 				/>
 			)}
 		</div>
