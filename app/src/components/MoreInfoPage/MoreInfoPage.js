@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import { MultiSelect } from "primereact/multiselect";
 import "./MoreInfoPage.css";
 
-const MoreInfoPage = () => {
+const MoreInfoPage = (props) => {
+	const { user } = props;
 	const [selectedConditions, setSelectedConditions] = useState(null);
 	const [selectedLifestyle, setSelectedLifestyle] = useState(null);
+
+	const navigate = useNavigate();
 
 	const conditions = [
 		{ name: "Hypertension", code: "HTN" },
@@ -22,8 +27,28 @@ const MoreInfoPage = () => {
 		{ name: "Paleo", code: "PAL" },
 	];
 
-	const handleGoToNewPage = () => {
-		window.location.href = "/body";
+	const handleSubmit = async () => {
+		console.log(user);
+		const lifestyles = selectedLifestyle.map((item) => item.name);
+		const conditions = selectedConditions.map((item) => item.name);
+
+		try {
+			const responseHealth = await axios.get(
+				`http://localhost:3002/user/${user._id}/healthdata`
+			);
+
+			const response = await axios.put(
+				`http://localhost:3002/health-data/${responseHealth.data}`,
+				{
+					conditions: conditions,
+					lifestyle: lifestyles,
+				}
+			);
+			console.log(response.data);
+			navigate("/body");
+		} catch (error) {
+			alert(error);
+		}
 	};
 
 	return (
@@ -53,8 +78,8 @@ const MoreInfoPage = () => {
 					/>
 				</div>
 			</div>
-			<button className="submit-btn" onClick={handleGoToNewPage}>
-				Submit
+			<button className="submit-btn-details" onClick={handleSubmit}>
+				Finish Registration
 			</button>
 		</div>
 	);

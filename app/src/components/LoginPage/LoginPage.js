@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -15,9 +17,26 @@ const LoginPage = () => {
 		});
 	};
 
-	const handleSubmit = (e) => {
+	const navigate = useNavigate();
+
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("Submitted:", formData);
+
+		try {
+			const response = await axios.post(
+				`http://localhost:3002/auth/login`,
+				{
+					email: formData.email,
+					password: formData.password,
+				}
+			);
+
+			localStorage.setItem("token", response.data.token);
+			localStorage.setItem("user", JSON.stringify(response.data));
+			navigate("/body");
+		} catch (error) {
+			alert("Password/Email is incorrect");
+		}
 	};
 
 	return (

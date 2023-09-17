@@ -8,20 +8,19 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import MoreInfoPage from "./components/MoreInfoPage/MoreInfoPage";
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/body" element={<BodySelector />} />
-          <Route path="/form" element={<QForm />} />
-          <Route path="/more" element={<MoreInfoPage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+	return (
+		<div className="App">
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/login" element={<LoginPage />} />
+					<Route path="/register" element={<RegistrationPage />} />
+					<Route path="/body" element={<BodySelector />} />
+					<Route path="/details" element={<MoreInfoPage />} />
+				</Routes>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
