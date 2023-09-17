@@ -1,30 +1,22 @@
-import { useState } from "react";
-import "./style.css"
+import React from "react";
+import "./style.css";
 
-const Question = ({ questionText, questionNumber, setAnswer }) => {
-  const [value, setValue] = useState('');
+const Question = ({ questionText, choices, questionNumber, setAnswer }) => {
 
-  const handleSubmit = () => {
-    setAnswer(questionNumber, value);
-    setValue(''); 
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleSubmit();
-    }
+  const handleChoiceClick = (choice) => {
+    setAnswer(questionNumber, choice);
   };
 
   return (
     <div className="wrapper">
       <label>{questionText}</label>
-      <input 
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyPress={handleKeyPress}
-      />
-      <button onClick={handleSubmit}>Submit</button>
+      <div className = "choices">
+        {choices.map((choice, index) => (
+          <button key={index} onClick={() => handleChoiceClick(choice)}>
+            {choice}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

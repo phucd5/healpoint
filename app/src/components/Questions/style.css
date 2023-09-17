@@ -9,30 +9,30 @@
   }
 
 label{
+    font-size: 45px;
+	margin-bottom: 5%;
+}
+.choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Distribute buttons horizontally */
+    width: 80%; /* Full width of the parent container */
+  }
+  
+  button {
+    background-color: #092FA2;
+    color: white;
+    border: none;
+    border-radius: 5px;
     font-size: 30px;
-	margin-bottom: 5px;
-}
-
-input{
-    width: 50%;
-	padding: 10px;
-	margin-bottom: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	font-size: 16px;
-}
-
-button{
-    width: 50%;
-	padding: 10px;
-	background-color: #092FA2;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-	cursor: pointer;
-}
+    cursor: pointer;
+    width: 20%; 
+    padding: 1%;
+    text-align: center; /* Center the text inside the button */
+  }
+  
+
 
 .endText{
     display: flex;
