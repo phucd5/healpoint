@@ -19,7 +19,11 @@ function App() {
 					<Route path="/body" element={<BodySelector />} />
 					<Route path="/details" element={<MoreInfoPage />} />
 					<Route path="/form" element={<QForm />} />
-					<Route path="/question" element={<QuestionPage />} />
+					<Route path="/question" element={<QuestionPage questions={[
+      'What is your name?',
+      'What is your favorite color?',
+      'What is your quest?',
+    ]}/>} />
 				</Routes>
 			</BrowserRouter>
 		</div>

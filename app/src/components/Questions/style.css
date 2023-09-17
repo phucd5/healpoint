@@ -1,0 +1,46 @@
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+  }
+
+label{
+    font-size: 30px;
+	margin-bottom: 5px;
+}
+
+input{
+    width: 50%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+button{
+    width: 50%;
+	padding: 10px;
+	background-color: #092FA2;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+	cursor: pointer;
+}
+
+.endText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;  
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
