@@ -6,7 +6,7 @@ A web application that leverages OpenAI's GPT to give personalized at-home remed
 
 Phuc Duong, Yilin Li, Calvin Li, Ning Zhang
 
-HackMIT 2023
+[HackMIT 2023](https://devpost.com/software/healpoint-ai-powered-medical-self-diagnosis-tool)
 
 # Tech Stack
 
